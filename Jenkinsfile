@@ -2,14 +2,14 @@ pipeline {
 	agent any
 
 	stages {
-	    stage('Checkout') {
+	    stage('pulling') {
 	        steps {
-				checkout scm
+				sh 'git clone  https://github.com/Rajendra333/raja_app.git'
 			}
 		}
 		stage('Build') {
 	        steps {
-				sh '/home/raja/devops/apache-maven-3.6.1/bin/mvn install'
+				sh 'mvn install'
 	        }
 		}
 		stage('Deployment') {
